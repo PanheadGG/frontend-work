@@ -9,18 +9,6 @@
     transform-origin: top center;
 }
 
-@media (min-width: 800px) {
-    #app {
-        transform: scale(0.8);
-    }
-}
-
-@media (min-width: 1000px) {
-    #app {
-        transform: scale(1.0);
-    }
-}
-
 @media (min-width: 1200px) {
     #app {
         transform: scale(1.2);
@@ -51,7 +39,7 @@
     .disc-content{
         text-align: center;
         line-height: 2;
-        padding: 20px;
+        padding: 10px;
     }
 }
 
