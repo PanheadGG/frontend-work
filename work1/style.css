@@ -3,9 +3,40 @@
     src: url('assets/fonts/LiXuke.ttf');
 }
 
-.app{
-    width: 100%;
-    height: 100%;
+#app {
+    width: 1000px;
+    margin: auto;
+    transform-origin: top center;
+}
+
+@media (min-width: 800px) {
+    #app {
+        transform: scale(0.8);
+    }
+}
+
+@media (min-width: 1000px) {
+    #app {
+        transform: scale(1.0);
+    }
+}
+
+@media (min-width: 1200px) {
+    #app {
+        transform: scale(1.2);
+    }
+}
+
+@media (min-width: 1500px) {
+    #app {
+        transform: scale(1.5);
+    }
+}
+
+@media (min-width: 2000px) {
+    #app {
+        transform: scale(2.0);
+    }
 }
 
 .title{
@@ -19,6 +50,8 @@
     display: flex;
     .disc-content{
         text-align: center;
+        line-height: 2;
+        padding: 20px;
     }
 }
 
