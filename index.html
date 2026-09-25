@@ -196,6 +196,64 @@
             font-size: .8rem;
             opacity: .7;
         }
+
+        /* ---- 作业 2 / 作业 3 ---- */
+        .work-desc {
+            font-size: .95rem;
+            color: var(--muted);
+        }
+
+        .work-desc strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: .85rem;
+            line-height: 1.6;
+        }
+
+        th, td {
+            border-bottom: 1px solid var(--border);
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        tbody tr:last-child td { border-bottom: none; }
+        tbody tr:hover { background: #f8faff; }
+
+        td.num {
+            font-weight: 700;
+            color: var(--primary);
+            text-align: center;
+            white-space: nowrap;
+            width: 44px;
+        }
+
+        code {
+            font-family: Consolas, "Courier New", monospace;
+            font-size: .85em;
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            border-radius: 5px;
+            padding: 1px 6px;
+        }
     </style>
 </head>
 <body>
@@ -233,6 +291,110 @@
                 <div class="link-list">
                     <a href="https://fwork.pgigi.com/work1">国内 CDN</a>
                     <a href="https://fwork.pgg.wtf/work1">国外 CDN</a>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <article class="work-card" style="margin-top: 28px;">
+        <div class="work-card-head">
+            <div class="work-num">2</div>
+            <h2>作业 2</h2>
+        </div>
+        <div class="work-card-body">
+            <p class="work-desc">
+                <strong>阅读博客 HTML 代码，找出页面中错误或缺陷，填写表格</strong>
+                （缺陷位置 / 错误描述 / 造成的影响），共定位 17 处缺陷；
+                对照修复文件为 <code>work2/html5优化版本.html</code>。
+            </p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>缺陷位置</th>
+                            <th>错误描述</th>
+                            <th>造成的影响</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="num">1</td><td>第 1 行 &lt;html&gt;</td><td>缺少 HTML5 文档类型声明 &lt;!DOCTYPE html&gt;，浏览器无法以标准模式渲染页面</td><td>可能导致 CSS 布局错乱、盒模型计算不一致，不同浏览器下显示效果差异大</td></tr>
+                        <tr><td class="num">2</td><td>第 1 行 &lt;html&gt;</td><td>&lt;html&gt; 标签缺少 lang 属性（如 lang="zh-CN"）</td><td>搜索引擎无法准确识别页面语言，影响 SEO；屏幕阅读器无法正确切换发音语言，无障碍访问体验差</td></tr>
+                        <tr><td class="num">3</td><td>第 18-23 行 / 第 123 行 &lt;font&gt; 标签</td><td>大量使用已废弃的 &lt;font&gt; 标签（包括 size、color 属性）来设置文本样式</td><td>违反 HTML5 规范，样式与结构混杂；代码可维护性差，不利于全站统一样式管理；部分浏览器可能不再支持</td></tr>
+                        <tr><td class="num">4</td><td>第 123 行 &lt;center&gt;</td><td>使用已废弃的 &lt;center&gt; 标签进行居中对齐</td><td>&lt;center&gt; 在 HTML5 中已被弃用，应使用 CSS text-align:center 或 Flexbox 实现，代码不规范，存在兼容性风险</td></tr>
+                        <tr><td class="num">5</td><td>第 126 行 &lt;marquee&gt;</td><td>使用已废弃的 &lt;marquee&gt; 跑马灯标签</td><td>&lt;marquee&gt; 为非标准标签，已从 HTML5 规范中移除；部分现代浏览器可能不支持；影响页面可访问性（动态内容无法被屏幕阅读器稳定捕获）</td></tr>
+                        <tr><td class="num">6</td><td>第 130 行 / 第 146 行 id="content"</td><td>页面中出现两个相同的 id="content"，id 属性值重复</td><td>JavaScript 中 getElementById() 只能获取第一个元素，导致脚本逻辑错误；CSS ID 选择器行为不确定；违反 HTML 规范</td></tr>
+                        <tr><td class="num">7</td><td>第 140 行 &lt;img&gt; 标签</td><td>图片缺少 alt 属性（替代文本）</td><td>图片加载失败时无法显示说明文字；屏幕阅读器无法描述图片内容，无障碍访问不达标；影响图片 SEO</td></tr>
+                        <tr><td class="num">8</td><td>第 132 行 &lt;b&gt; 标签</td><td>使用 &lt;b&gt; 标签作为文章标题，而非语义化的 &lt;h1&gt;~&lt;h6&gt;</td><td>页面缺乏正确的标题层级结构，不利于 SEO 和屏幕阅读器用户理解内容结构；&lt;b&gt; 仅为视觉加粗，无语义</td></tr>
+                        <tr><td class="num">9</td><td>第 138-143 行 正文区域</td><td>正文中部分段落使用 &lt;font size="3"&gt; 包裹，而其他段落没有，样式不统一</td><td>正文字号不一致，阅读体验差；样式管理混乱，应统一通过 CSS .article-body p 控制</td></tr>
+                        <tr><td class="num">10</td><td>第 122-159 行 整体结构</td><td>页面整体使用 &lt;div&gt; 布局，未使用 HTML5 语义化标签（&lt;header&gt;、&lt;nav&gt;、&lt;main&gt;、&lt;article&gt;、&lt;section&gt;、&lt;footer&gt; 等）</td><td>页面结构语义不明确，搜索引擎难以理解内容层次；屏幕阅读器用户无法通过地标（landmark）快速跳转；SEO 效果不佳</td></tr>
+                        <tr><td class="num">11</td><td>第 133-137 行 目录区域</td><td>文章目录使用 &lt;br&gt; 换行实现列表，而非 &lt;ul&gt;/&lt;ol&gt; + &lt;li&gt; 列表结构</td><td>结构语义缺失，屏幕阅读器无法识别为列表；样式调整困难（无法用列表样式统一控制）；可维护性差</td></tr>
+                        <tr><td class="num">12</td><td>第 149-153 行 评论表单</td><td>表单输入控件缺少 &lt;label&gt; 标签关联，“昵称”和“评论”为纯文本</td><td>点击文字无法聚焦输入框，用户体验差；屏幕阅读器无法朗读对应的标签文字，表单可访问性严重不足</td></tr>
+                        <tr><td class="num">13</td><td>第 149-153 行 评论表单</td><td>表单缺少客户端验证（如 required 属性、maxlength 限制），也缺少防 CSRF 的隐藏字段</td><td>用户可提交空评论或超长内容，增加服务器负担和垃圾评论风险；缺少 CSRF 防护存在安全隐患，易被跨站请求伪造攻击</td></tr>
+                        <tr><td class="num">14</td><td>第 127 行 导航栏</td><td>导航链接之间使用竖线符号作为分隔符，而非 CSS border 或 Flexbox 间隔</td><td>结构与表现混杂，分隔符无法通过 CSS 灵活控制样式；在无障碍阅读中竖线会被朗读出来，影响体验</td></tr>
+                        <tr><td class="num">15</td><td>第 33 行 / 第 126 行 marquee 样式</td><td>CSS 中写了 .nav marquee { display: none; }，即页面中 marquee 被隐藏但仍保留在 HTML 中，属于无用代码</td><td>增加页面体积，造成代码冗余；影响代码可维护性，容易误导后续开发者</td></tr>
+                        <tr><td class="num">16</td><td>第 4 行 &lt;title&gt;</td><td>页面标题为“技术博客 - 文章详情”，但文章实际标题是“HTML5 学习笔记”，标题与内容不匹配</td><td>影响 SEO 排名（搜索引擎依据 title 判断页面主题）；用户在浏览器标签页中无法快速识别具体文章内容</td></tr>
+                        <tr><td class="num">17</td><td>第 135-136 行 目录锚点</td><td>目录链接 #item1、#item2 指向的锚点在正文中不存在</td><td>点击目录链接无反应或跳转到错误位置，目录功能失效，用户体验差；跳转目标缺失属于功能缺陷</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="meta-row">
+                <span>完成时间：</span>
+                <span class="date">2026-09-21</span>
+            </div>
+
+            <div class="links">
+                <div class="links-title">预览地址</div>
+                <div class="link-list">
+                    <a href="https://fwork.pgigi.com/work2">国内 CDN</a>
+                    <a href="https://fwork.pgg.wtf/work2">国外 CDN</a>
+                    <a href="./work2/index.html">缺陷分析文档</a>
+                    <a href="./work2/html5错误案例.html">错误案例</a>
+                    <a href="./work2/html5优化版本.html">优化版本</a>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <article class="work-card" style="margin-top: 28px;">
+        <div class="work-card-head">
+            <div class="work-num">3</div>
+            <h2>作业 3</h2>
+        </div>
+        <div class="work-card-body">
+            <p class="work-desc">
+                <strong>AI助教答疑平台 登录&注册页面</strong>：原生 HTML5 + 内嵌 CSS、零 JavaScript；
+                覆盖 <code>required</code>、<code>pattern</code>、<code>type="email"</code>、<code>type="tel"</code>、
+                <code>minlength/maxlength</code>、<code>placeholder</code>、<code>autofocus</code>、<code>autocomplete</code>
+                与浏览器原生约束验证；浅蓝色主题居中卡片，移动端自适应。
+            </p>
+
+            <div class="compare">
+                <div class="compare-item expect">
+                    <span class="label">登录页</span>
+                    <img src="./images/work3-login.png" alt="work3 登录页效果">
+                </div>
+                <div class="compare-item real">
+                    <span class="label">注册页</span>
+                    <img src="./images/work3-register.png" alt="work3 注册页效果">
+                </div>
+            </div>
+
+            <div class="meta-row">
+                <span>完成时间：</span>
+                <span class="date">2026-09-25</span>
+            </div>
+
+            <div class="links">
+                <div class="links-title">预览地址</div>
+                <div class="link-list">
+                    <a href="https://fwork.pgigi.com/work3">国内 CDN</a>
+                    <a href="https://fwork.pgg.wtf/work3">国外 CDN</a>
+                    <a href="./work3/login.html">登录页</a>
+                    <a href="./work3/register.html">注册页</a>
+                    <a href="./work3/index.html">课后任务文档</a>
                 </div>
             </div>
         </div>
