@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #12141a;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        .stage {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 56px;
+            padding: 56px 32px;
+        }
+
+        .cube {
+            width: 120px;
+            height: 120px;
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+            cursor: pointer;
+        }
+
+        .cube:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+        }
+
+        .cube::after {
+            content: "hover";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 18px;
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+            pointer-events: none;
+        }
+
+        .cube:hover::after {
+            opacity: 1;
+        }
+
+        .c1 {
+            background: linear-gradient(135deg, #ff7a59 0%, #ff4f40 100%);
+            box-shadow: 0 10px 30px rgba(255, 79, 64, 0.45);
+        }
+
+        .c2 {
+            border-radius: 10px;
+            background: linear-gradient(135deg, #36d399 0%, #20b26a 100%);
+            box-shadow: 0 10px 30px rgba(32, 178, 106, 0.45);
+        }
+
+        .c3 {
+            border-radius: 24px;
+            background: linear-gradient(135deg, #bface2 0%, #8a7cc1 100%);
+            box-shadow: 0 10px 30px rgba(138, 124, 193, 0.45);
+        }
+
+        .c4 {
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffd36e 0%, #ffb347 100%);
+            box-shadow: 0 10px 30px rgba(255, 179, 71, 0.5);
+        }
+
+        .c5 {
+            border-radius: 10px;
+            background: linear-gradient(135deg, #5c7a72 0%, #3b544f 100%);
+            box-shadow: 0 10px 30px rgba(60, 90, 80, 0.45);
+        }
+
+        .c6 {
+            border-radius: 50%;
+            background: linear-gradient(135deg, #d4c5e5 0%, #a594c2 100%);
+            box-shadow: 0 10px 30px rgba(145, 120, 180, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+<div class="stage">
+    <div class="cube c1"></div>
+    <div class="cube c2"></div>
+    <div class="cube c3"></div>
+    <div class="cube c4"></div>
+    <div class="cube c5"></div>
+    <div class="cube c6"></div>
+</div>
+</body>
+</html>

@@ -24,7 +24,7 @@
 
 - [work2/html5错误案例.html](work2/html5错误案例.html) —— 待分析页面（含下表缺陷）
 - [work2/html5优化版本.html](work2/html5优化版本.html) —— 修复后的 HTML5 语义化版本
-- [work2/课后任务文档.md](work2/课后任务文档.md) / [work2/index.html](work2/index.html) —— 缺陷分析文档及其网页版
+- [work2/课后任务文档.md](work2/README.md) / [work2/index.html](work2/index.html) —— 缺陷分析文档及其网页版
 
 完成时间: 2026-9-21
 
@@ -74,7 +74,7 @@
 
 - [work3/login.html](work3/login.html) —— 登录页（单文件，内嵌 CSS，无 JS）
 - [work3/register.html](work3/register.html) —— 注册页（单文件，内嵌 CSS，无 JS）
-- [work3/课后任务文档.md](work3/课后任务文档.md) / [work3/课后任务文档.docx](work3/课后任务文档.docx) —— 课后任务文档（源 / 提交版）
+- [work3/课后任务文档.md](work3/README.md) / [work3/课后任务文档.docx](work3/课后任务文档.docx) —— 课后任务文档（源 / 提交版）
 - [work3/index.html](work3/index.html) —— 文档网页版（即 /work3/ 预览内容）
 
 完成时间: 2026-9-25
@@ -86,3 +86,28 @@
 国外CDN: [https://fwork.pgg.wtf/work3](https://fwork.pgg.wtf/work3)
 
 页面直链: [登录页](work3/login.html) / [注册页](work3/register.html)
+
+## 作业 4
+
+任务: CSS3 鼠标悬浮（hover）过渡效果练习 —— 深色背景上排列六个 120×120 的渐变色块，鼠标移入时色块上浮、阴影加深并淡入 "hover" 提示文字，移出后平滑还原，全程零 JavaScript。
+
+技术要点: `:hover` 伪类、`transition`（`transform` / `box-shadow` 的 0.3s ease-out 过渡）、`transform: translateY(-10px)`、同色系 `box-shadow` 辉光、`border-radius`（直角 / 圆角 / 50% 正圆三种形态）、135° `linear-gradient` 双色渐变、`::after` 伪元素提示文字、Flexbox 居中与 `flex-wrap` 换行。
+
+实际效果:
+
+![work4-preview.png](images/work4-preview.png)
+
+文件:
+
+- [work4/index.html](work4/index.html) —— 页面本体（单文件，内嵌 CSS，无 JS）
+- [work4/README.md](work4/README.md) —— 课后任务文档（技术要点、六个色块说明、已知问题）
+
+完成时间: 2026-10-06
+
+预览地址:
+
+国内CDN: [https://fwork.pgigi.com/work4](https://fwork.pgigi.com/work4)
+
+国外CDN: [https://fwork.pgg.wtf/work4](https://fwork.pgg.wtf/work4)
+
+页面直链: [work4/index.html](work4/index.html)
