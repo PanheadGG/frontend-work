@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>运营数据看板 · 前端作业 5</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<div class="app">
+    <aside class="sidebar" id="sidebar" aria-label="侧边栏">
+        <div class="sidebar-head">
+            <div class="brand">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                        <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+                        <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+                        <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+                        <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+                    </svg>
+                </span>
+                <span class="brand-name">Pulse<span>数据台</span></span>
+            </div>
+
+            <button type="button" class="sidebar-toggle" id="sidebar-toggle"
+                    aria-controls="sidebar" aria-expanded="true"
+                    aria-label="收起侧栏" title="收起侧栏">
+                <svg class="icon-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+                <svg class="icon-close" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <path d="M6 6l12 12M18 6 6 18"/>
+                </svg>
+            </button>
+        </div>
+
+        <nav class="nav" aria-label="主导航">
+            <p class="nav-label">工作台</p>
+            <a class="nav-link is-active" href="#metrics" aria-current="page" aria-label="概览" title="概览">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+                    <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+                    <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+                    <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+                </svg>
+                <span class="nav-text">概览</span>
+            </a>
+            <a class="nav-link" href="#trend" aria-label="访问趋势" title="访问趋势">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <path d="M4 19V9M10 19V5M16 19v-7M22 19V8"/>
+                </svg>
+                <span class="nav-text">访问趋势</span>
+            </a>
+            <a class="nav-link" href="#channels" aria-label="渠道来源" title="渠道来源">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <path d="M21 12a9 9 0 1 1-9-9v9h9Z"/>
+                    <path d="M15 3.6A9 9 0 0 1 20.4 9H15V3.6Z"/>
+                </svg>
+                <span class="nav-text">渠道来源</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-foot">
+            <div class="sidebar-status">
+                <span class="live-dot" aria-hidden="true"></span>
+                <span class="status-text">数据同步正常</span>
+            </div>
+            <div class="user" title="Panhead · 数据管理员">
+                <span class="avatar" aria-hidden="true">PG</span>
+                <div class="user-info">
+                    <p class="user-name">Panhead</p>
+                    <p class="user-role">数据管理员</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebar-backdrop" aria-hidden="true"></div>
+
+    <div class="content">
+        <header class="topbar">
+            <div class="topbar-inner">
+                <div class="heading">
+                    <button type="button" class="mobile-brand" id="sidebar-open"
+                            aria-controls="sidebar" aria-expanded="false"
+                            aria-label="打开侧栏" title="打开侧栏">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                            <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+                            <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+                            <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+                            <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+                        </svg>
+                    </button>
+                    <div>
+                        <h1>运营数据看板</h1>
+                        <p class="subtitle">实时掌握业务关键指标</p>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <div class="segmented" role="group" aria-label="时间范围">
+                        <button type="button" data-range="today" aria-pressed="false">今日</button>
+                        <button type="button" data-range="week" aria-pressed="true">本周</button>
+                        <button type="button" data-range="month" aria-pressed="false">本月</button>
+                    </div>
+
+                    <button id="theme-toggle" class="icon-button" type="button" aria-label="切换到深色模式" aria-pressed="false">
+                        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                            <circle cx="12" cy="12" r="4"/>
+                            <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/>
+                        </svg>
+                        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                            <path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main id="main">
+            <noscript>
+                <p class="noscript">此看板依赖 JavaScript 渲染数据，请启用 JavaScript 后刷新页面。</p>
+            </noscript>
+
+            <section class="section" id="metrics" aria-labelledby="metrics-title">
+                <div class="section-head">
+                    <div>
+                        <h2 id="metrics-title">核心指标</h2>
+                        <p class="section-sub" aria-live="polite">数据范围 · <span id="range-label">本周</span>，与上一周期对比</p>
+                    </div>
+                    <p class="updated">
+                        <span class="live-dot" aria-hidden="true"></span>
+                        实时更新 · <time id="updated-at" datetime="">--:--</time>
+                    </p>
+                </div>
+
+                <!-- 6 张指标卡由 JS 数组渲染，此处不手写重复结构 -->
+                <div class="kpi-grid" id="kpi-grid"></div>
+            </section>
+
+            <section class="section" aria-label="趋势与渠道">
+                <div class="panel-grid">
+                    <article class="panel" id="trend" aria-labelledby="trend-title">
+                        <div class="panel-head">
+                            <div>
+                                <h2 id="trend-title">访问趋势</h2>
+                                <p class="panel-sub" id="trend-sub">本周每日访问量</p>
+                            </div>
+                        </div>
+
+                        <div class="chart" id="trend-chart" role="img" aria-label="访问量趋势图">
+                            <div class="chart-canvas" id="trend-canvas"></div>
+                            <div class="chart-tooltip" id="trend-tooltip" aria-hidden="true">
+                                <strong></strong>
+                                <span></span>
+                            </div>
+                        </div>
+
+                        <details class="data-table">
+                            <summary>查看数据表</summary>
+                            <div class="table-scroll">
+                                <table id="trend-table"></table>
+                            </div>
+                        </details>
+                    </article>
+
+                    <article class="panel" id="channels" aria-labelledby="channels-title">
+                        <div class="panel-head">
+                            <div>
+                                <h2 id="channels-title">渠道来源</h2>
+                                <p class="panel-sub">按访问占比排序</p>
+                            </div>
+                        </div>
+
+                        <ul class="bars" id="channel-bars" aria-label="渠道访问占比"></ul>
+
+                        <div class="channel-total">
+                            <span>总访问量</span>
+                            <strong id="channel-total">--</strong>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <span>© 2026 Pulse 数据台 · 演示数据仅用于课程作业</span>
+            <span>HTML + CSS + 原生 JavaScript</span>
+        </footer>
+    </div>
+</div>
+</body>
+</html>

@@ -111,3 +111,34 @@
 国外CDN: [https://fwork.pgg.wtf/work4](https://fwork.pgg.wtf/work4)
 
 页面直链: [work4/index.html](work4/index.html)
+
+## 作业 5
+
+任务: 使用 HTML + CSS + 原生 JavaScript 实现一个在手机、平板、桌面三档宽度下都正常使用的响应式数据看板。
+
+技术要点: HTML / CSS / 原生 JS 分文件实现；三档媒体查询（<768 单列 / 768–1199 两列 / ≥1200 四列 + 固定侧栏）、手机抽屉 / 平板图标栏 / 桌面可折叠侧栏、Grid 的 `minmax()` 流式卡片、6 张 KPI 卡片由 JS 数组统一渲染、`tabular-nums` 等宽数字与数字过渡、CSS 变量 + `data-theme` 深浅主题切换、手写 SVG 折线图（十字准线 + 提示框）与渠道条形图、`ResizeObserver` 响应式重绘、`aria-expanded` / 焦点管理 / 数据表替代视图等无障碍处理。
+
+实际效果:
+
+![work5-preview.png](images/work5-preview.png)
+
+深色模式:
+
+![work5-preview-dark.png](images/work5-preview-dark.png)
+
+文件:
+
+- [work5/index.html](work5/index.html) —— 页面结构（语义化标签 + 内联 SVG）
+- [work5/styles.css](work5/styles.css) —— 样式、主题变量与响应式断点
+- [work5/app.js](work5/app.js) —— 原生 JS 数据渲染、图表、主题与侧栏交互
+- [work5/README.md](work5/README.md) —— 课后任务文档（八项要求对照、技术要点、交互说明）
+
+完成时间: 2026-10-24
+
+预览地址:
+
+国内CDN: [https://fwork.pgigi.com/work5](https://fwork.pgigi.com/work5)
+
+国外CDN: [https://fwork.pgg.wtf/work5](https://fwork.pgg.wtf/work5)
+
+页面直链: [work5/index.html](work5/index.html)
